@@ -1,5 +1,5 @@
 <?php
-class ShopProductWriter {
+abstract class ShopProductWriter {
 
     public $products = array();
 

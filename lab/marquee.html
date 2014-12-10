@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script type="text/javascript" src="jquery.min.js"></script>
+        <script type="text/javascript" src="gistfile1.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                
+                var marqueeState={behaviour:'scroll'};
+               
+           
+                $('div.demo').marquee('pointer').mouseover(function() {
+                    $(this).trigger('stop');
+                }).mouseout(function() {
+                    $(this).trigger('start');
+                }).mousemove(function(event) {
+                    if ($(this).data('drag') == true) {
+                        this.scrollLeft = $(this).data('scrollX') + ($(this).data('x') - event.clientX);
+                    }
+                }).mousedown(function(event) {
+                    $(this).data('drag', true).data('x', event.clientX).data('scrollX', this.scrollLeft);
+                }).mouseup(function() {
+                    $(this).data('drag', false);
+                });
+            });
+
+
+
+
+        </script>
+        <style type="text/css">
+
+            .demo{
+                width: 300px;
+                border:1px solid #ccc !important;
+                border-color: #0e90d2;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="demo">
+            <div class="pointer"> TODO write content</div>
+        </div>
+
+    </body>
+</html>
